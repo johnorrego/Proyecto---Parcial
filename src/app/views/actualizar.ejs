@@ -1,0 +1,17 @@
+<% include header %>
+
+
+    <div class="col-md-6 mt-4 card">
+        <form class="card-body" action="/news/update/<%= news.id_news %>" method="post">
+            <h3 class="card-title">Update news</h3>
+            <div class="form-group">
+                <input name="title" type="text" class="form-control" value="<%= news.title %>">
+            </div>
+            <div class="form-group">
+                <input name="news" type="text" class="form-control" value="<%= news.news %>">
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+
+    <% include footer %>

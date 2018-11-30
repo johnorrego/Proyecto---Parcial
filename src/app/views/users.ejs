@@ -1,0 +1,61 @@
+<% include header %>
+    <div class="row">
+        <div class="col-md-6 mt-6 text-center">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>User name</th>
+                    <th>Password</th>
+                    
+                </tr>
+                <% for (var i = 0; i < user.length; i ++) { %>
+                    <tr>
+                        <td>
+                            <%= user[i].id %>
+                        </td>
+                        <td>
+                            <%= user[i].first_name %>
+                        </td>
+                        <td>
+                            <%= user[i].last_name %>
+                        </td>
+                        <td>
+                            <%= user[i].user_name %>
+                         </td>
+                        <td>
+                            <%= user[i].password %>
+                        </td>
+                        
+                        <td>
+                            <a href="/users/eliminar_usu/<%= user[i].id %>" class="btn btn-danger">Delete</a>
+                            <a href="/users/update_user/<%= user[i].id %>" class="btn btn-info">Update</a>
+
+                        </td>
+                    </tr>
+
+                    <% } %>
+            </table>
+        </div>
+        <div class="col-md-6 mt-4 card">
+            <form class="card-body" action="/users/add" method="post">
+                <h3 class="card-title">Add Users</h3>
+                <div class="form-group">
+                    <input name="first_name" id="caja1" type="text" class="form-control" placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <input name="last_name" id="caja2" type="text" class="form-control" placeholder="Apellido">
+                </div>
+                <div class="form-group">
+                    <input name="password" id="caja2" type="text" class="form-control" placeholder="Usuario">
+                </div>
+                <div class="form-group">
+                    <input name="user_name" id="caja2" type="text" class="form-control" placeholder="Contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+
+    </div>
+    <% include footer %>
